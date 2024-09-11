@@ -1,0 +1,167 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+h3 {
+    color: #34495e;
+  }
+  
+div {
+    margin-bottom: 20px;
+  }
+  
+/* Contenedor principal */
+.matriz-calculadora {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Mayor ancho para pantallas grandes */
+    width: 100%;
+    overflow: auto;
+  }
+  
+/* Matriz */
+.matriz {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Ajusta dinámicamente el ancho de las celdas */
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+.matriz input {
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+.matriz input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+/* Botones */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+button:hover {
+    background-color: #2980b9;
+  }
+  
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+/* Select de operaciones */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    margin-bottom: 20px;
+  }
+  
+/* Resultados */
+.resultado {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Controlar cuántas columnas según la matriz */
+    gap: 10px;
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    overflow-x: auto; /* Desplazamiento si los resultados se salen del contenedor */
+    justify-content: center; /* Centra la matriz */
+  }
+  
+.resultado span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+  }
+
+/* Responsivo */
+
+/* Pantallas pequeñas */
+@media (max-width: 600px) {
+    .matriz-calculadora {
+      max-width: 100%;
+    }
+
+    .matriz {
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Ajusta el ancho de celdas en pantallas pequeñas */
+      gap: 5px; /* Reducir espacio entre celdas */
+    }
+
+    button {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+
+    select {
+      font-size: 14px;
+    }
+
+    .resultado span {
+      font-size: 14px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+    }
+  }
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+    body {
+        padding: 40px; /* Más espacio en pantallas grandes */
+    }
+
+    .matriz-calculadora {
+      max-width: 1200px; /* Aumentar el ancho del contenedor */
+    }
+
+    .matriz input {
+      font-size: 18px; /* Ajustar el tamaño del input */
+    }
+
+    .resultado span {
+      font-size: 20px; /* Aumentar el tamaño de la fuente en resultados */
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+    }
+  }
